@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+
+<body>
+    <h1>Items list</h1>
+    <ul>
+        <li th:each="fruit : ${fruits}">
+            n° <span th:text="${fruit.id}"></span> - <span th:text="${fruit.name}"></span>
+        </li>
+    </ul></body>
+
+</html>

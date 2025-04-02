@@ -1,0 +1,36 @@
+📌 Job01 : Comment le modèle MVC aide-t-il à structurer une application web ?
+
+    Rappel des Definitions :
+
+        - Model : Gère la logique métier et l'accès aux données.
+        - View : Gère l'affichage et l'interface utilisateur.
+        - Controller : Gère les requêtes utilisateur et la logique de navigation.
+
+    Spring Boot implémente Spring MVC, où :
+    Les contrôleurs (@Controller ou @RestController) reçoivent et traitent les requêtes HTTP.
+    Les modèles (souvent représenté par des classes avec @Entity, @Service, @Repository) gère les données et la logique.
+    Les vues utilise Thymeleaf pour afficher les données renvoyées par le contrôleur.
+
+
+🖼️ Job02 : Quelle est la différence entre Thymeleaf et les templates HTML classiques ?
+
+    Thymeleaf permet d’injecter des données dynamiques venant de Spring Boot, tandis que les templates HTML classiques affichent uniquement du contenu statique.
+
+
+📤 Job03 : Comment pouvez-vous passer des données d'un contrôleur à une vue dans Spring ?
+
+        Les données sont passées du contrôleur à la vue via l'objet Model, en utilisant model.addAttribute("nomDeLAttribut", sa valeur).
+        Ensuite, Thymeleaf récupère ces données dans la vue avec ${nomDeLAttribut} et les affiche dynamiquement.
+
+
+📝 Job04 : Comment Spring facilite-t-il la gestion des formulaires ?
+
+        Spring facilite la gestion des formulaires en intégrant Spring MVC et Spring Boot Starter Validation,
+        permettant la liaison automatique des données avec des objets Java via @ModelAttribute et la validation avec @Valid.
+
+
+✅ Job05: Comment Spring permet-il la validation des données du formulaire ?
+
+        Spring permet la validation des données du formulaire grâce à Jakarta Validation et l’annotation @Valid.
+        Il utilise des annotations comme @NotEmpty, @Size, et @Min sur les champs de l'objet modèle pour imposer des contraintes,
+        et BindingResult capture les erreurs afin qu'elles puissent être affichées dans la vue avec Thymeleaf.
