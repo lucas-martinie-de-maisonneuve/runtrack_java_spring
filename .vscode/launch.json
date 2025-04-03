@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "RuntrackApplication",
+            "request": "launch",
+            "mainClass": "com.example.runtrack.RuntrackApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-RuntrackApplication<com.example-runtrack>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

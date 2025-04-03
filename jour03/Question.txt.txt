@@ -1,0 +1,35 @@
+Job01 : Qu'est-ce que JPA et comment facilite-t-il l'accès aux bases de données ?
+
+    JPA (Java Persistence API) est une technologie qui permet de stocker et récupérer des objets Java dans une base de données sans écrire du SQL compliqué.
+    Avec Spring Data JPA, il suffit de créer une classe pour représenter une table (comme User avec id et name),
+    et Spring s’occupe automatiquement des requêtes, sans qu’on ait besoin d’écrire des getter, setter ou des requêtes SQL.
+
+
+Job02 : Pourquoi les bases de données en mémoire, comme H2, sont-elles utiles pendant le développement ?
+
+    Les bases de données en mémoire comme H2 sont utiles pendant le développement car elles permettent de tester rapidement les fonctionnalités sans avoir besoin
+    d'une base de données sauvegardé. Elles offrent une configuration simple et rapide, idéale pour les tests.
+
+
+Job 03 : Quelle est l'importance des annotations, telles que @Entity, dans le contexte de JPA ?
+
+    Les annotations comme @Entity sont essentielles pour JPA, car elles permettent à Spring Data JPA de savoir qu'une classe représente une table dans la base de données.
+
+
+Job04 : Comment Spring Data facilite-t-il la création de requêtes de base de données ?
+
+    Spring Data simplifie la création de requêtes de base de données en générant automatiquement les requêtes à partir des méthodes définies dans les interfaces de repository,
+    sans nécessiter d'écriture SQL explicite
+
+
+Job05 : Comment pouvez-vous créer et lire des entités avec Spring Data JPA ?
+
+    Pour créer et lire des entités avec Spring Data JPA, on utilise des méthodes comme save() pour insérer ou mettre à jour des données,
+    et findAll() ou findById() pour récupérer les entités.
+
+
+Job 06 : Comment la méthode save de Spring Data JPA peut-elle être utilisée à la fois pour la création et la mise à jour ?
+
+    La méthode save de Spring Data JPA peut être utilisée pour la création et la mise à jour car elle vérifie si l'entité a une id (clé primaire) déjà défini
+    Si c'est le cas, elle effectue une mise à jour, sinon elle crée une nouvelle entité.
+    Cela permet une gestion simple de l'ajout ou de la modification d'enregistrements.

@@ -9,4 +9,5 @@ public class RuntrackApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RuntrackApplication.class, args);
 	}
+
 }

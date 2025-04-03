@@ -25,7 +25,7 @@
 🖥️ Job05 : Pourquoi serait-il utile d'avoir différents profils dans une application Spring ?
 
     Les profils permettent de séparer la configuration de l'application selon l'environnement dans lequel elle fonctionne.
-    Cela permetterait de pouvoir avoir un environnement de développement et un environnement de production indépendant qui
+    Cela permet de pouvoir avoir un environnement de développement et un environnement de production indépendant qui
     peuvent avoir des fonctionnalités différentes.
 
 🔧 Job06 : En quoi la dépendance DevTools est-elle bénéfique pour le développement ?

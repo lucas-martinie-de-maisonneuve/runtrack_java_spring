@@ -1,8 +1,6 @@
 spring:
   profiles:
     active: dev
-  thymeleaf:
-    check-template-location: false
 
 ---
 spring:

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Persons</title>
+</head>
+
+<body>
+    <h2>Person List</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="person : ${people}">
+            <td th:text="${person.id}"></td>
+            <td th:text="${person.name}"></td>
+            <td th:text="${person.age}"></td>
+            <td>
+                <button> <a th:href="@{/persons(editId=${person.id})}">Edit</a></button>
+                <form th:action="@{/delete-person}" method="post" style="display:inline;">
+                    <input type="hidden" name="id" th:value="${person.id}" />
+                    <button type="submit" onclick="return confirm('Are you sure ?')">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <br />
+    <h2>Add a Person</h2>
+    <form th:action="@{/add-persons}" method="post">
+        <label>Name: <input type="text" name="name" required /></label>
+        <label>Age: <input type="number" name="age" required /></label>
+        <button type="submit">Add Person</button>
+    </form>
+    <br />
+    <h2 th:if="${param.editId != null}" th:text="'Editing Person ' + ${param.editId}"></h2>
+    <h2 th:if="${param.editId == null}">Editing Person</h2>
+
+    <form th:action="@{/update-person}" method="post">
+        <input type="hidden" name="id" th:value="${param.editId}" />
+        <label>Name: <input type="text" name="name" th:value="${editPerson?.name}" required /></label>
+        <label>Age: <input type="number" name="age" th:value="${editPerson?.age}" required /></label>
+        <button type="submit">Save</button>
+        <button><a href="/persons">Cancel</a></button>
+    </form>
+
+</body>
+
+</html>
