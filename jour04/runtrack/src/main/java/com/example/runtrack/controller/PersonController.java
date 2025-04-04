@@ -39,4 +39,5 @@ public class PersonController {
         personService.deleteById(id);
         return "redirect:/persons";
     }
+
 }

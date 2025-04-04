@@ -15,7 +15,7 @@ public class PersonService {
 
     private final PersonRepository personRepository;
     private final PasswordEncoder passwordEncoder;
-    
+
     @Lazy
     public PersonService(PersonRepository personRepository, PasswordEncoder passwordEncoder) {
         this.personRepository = personRepository;
@@ -34,11 +34,11 @@ public class PersonService {
         if (person.getUsername() == null || person.getUsername().isEmpty()) {
             throw new IllegalArgumentException("Username is required!");
         }
-    
+
         if (person.getPassword() != null && !person.getPassword().isEmpty()) {
             person.setPassword(passwordEncoder.encode(person.getPassword()));
         }
-    
+
         return personRepository.save(person);
     }
 
@@ -46,5 +46,4 @@ public class PersonService {
         personRepository.deleteById(id);
     }
 
-    
 }

@@ -17,8 +17,3 @@ spring:
       path: /h2-console
   thymeleaf:
     cache: false
-logging:
-  level:
-    org:
-      springframework:
-        security: DEBUG

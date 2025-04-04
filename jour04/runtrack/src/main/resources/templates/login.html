@@ -1,19 +1,61 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head><title>Login</title></head>
-<body>
-<h1>Connexion</h1>
-<form th:action="@{/login}" method="post">
-    <label>Nom d'utilisateur : <input type="text" name="username"/></label><br/>
-    <label>Mot de passe : <input type="password" name="password"/></label><br/>
-    <button type="submit">Connexion</button>
-</form>
 
-<div th:if="${param.error}">
-    <p style="color:red;">Identifiants invalides</p>
-</div>
-<div th:if="${param.logout}">
-    <p style="color:green;">Déconnecté avec succès</p>
-</div>
+<head>
+    <title>Connexion</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1 class="header-title">Spring Boot</h1>
+        </div>
+    </header>
+    <div class=mega-content>
+        <div class="content">
+            <h2>Connexion</h2>
+
+            <form th:action="@{/login}" method="post">
+                <label>Nom d'utilisateur :</label>
+                <input type="text" name="username" required />
+
+                <label>Mot de passe :</label>
+                <input type="password" name="password" required />
+
+                <input type="submit" value="Connexion" />
+            </form>
+
+            <div th:if="${param.error}" class="alert alert-error">
+                Identifiants invalides
+            </div>
+            <div th:if="${param.logout}" class="alert alert-success">
+                Déconnecté avec succès
+            </div>
+        </div>
+        <p> ou </p>
+        <div class="content">
+            <h2>Inscription</h2>
+            <form th:action="@{register}" method="post">
+                <label for="username">Nom d'utilisateur :</label>
+                <input type="text" id="username" name="username" required />
+
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" required />
+
+                <label for="firstName">Prénom :</label>
+                <input type="text" id="firstName" name="firstName" required />
+
+                <label for="lastName">Nom :</label>
+                <input type="text" id="lastName" name="lastName" required />
+
+                <label for="phoneNumber">Téléphone :</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" />
+
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>

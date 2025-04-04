@@ -2,36 +2,47 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Add a person</title>
+    <title>Ajouter une personne</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 
 <body>
-    <h1>Add a person</h1>
-    <form th:action="@{/persons/save}" th:object="${person}" method="post">
-        <label>Username:</label>
-        <input type="text" th:field="*{username}" required /><br />
+    <header>
+        <div class="header-container">
+            <h1 class="header-title">Spring Boot</h1>
+            <div class="logout-button">
+                <a href="/login">Déconnecter</a>
+            </div>
+        </div>
+    </header>
+    <div class="content">
+        <h2>Ajouter une personne</h2>
 
-        <label>Password:</label>
-        <input type="password" th:field="*{password}" required /><br />
+        <form th:action="@{/persons/save}" th:object="${person}" method="post">
+            <label>Nom d'utilisateur:</label>
+            <input type="text" th:field="*{username}" required />
 
-        <label>First Name:</label>
-        <input type="text" th:field="*{firstName}" required /><br />
+            <label>Mot de passe:</label>
+            <input type="password" th:field="*{password}" required />
 
-        <label>Last Name:</label>
-        <input type="text" th:field="*{lastName}" required /><br />
+            <label>Prénom:</label>
+            <input type="text" th:field="*{firstName}" required />
 
-        <label>Phone number:</label>
-        <input type="text" th:field="*{phoneNumber}" /><br />
+            <label>Nom:</label>
+            <input type="text" th:field="*{lastName}" required />
 
-        <label>Role:</label>
-        <select th:field="*{role}" required>
-            <option value="ADMIN" th:selected="${person.role == 'ADMIN'}">Admin</option>
-            <option value="USER" th:selected="${person.role == 'USER'}">User</option>
-        </select><br />
+            <label>Téléphone:</label>
+            <input type="text" th:field="*{phoneNumber}" />
 
-        <button type="submit">Save</button>
-    </form>
+            <label>Rôle:</label>
+            <select th:field="*{role}" required>
+                <option value="ADMIN" th:selected="${person.role == 'ADMIN'}">Admin</option>
+                <option value="USER" th:selected="${person.role == 'USER'}">User</option>
+            </select>
 
+            <input type="submit" value="Enregistrer" />
+        </form>
+    </div>
 </body>
 
 </html>

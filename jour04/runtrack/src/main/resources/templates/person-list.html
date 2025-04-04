@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head><title>Person list</title></head>
+
+<head>
+    <title>Person list</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+
 <body>
-<h1>Liste des personnes</h1>
-<button><a th:href="@{/persons/add}">Add a new person</a></button>
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Email</th>
-        <th>Last name</th>
-        <th>First name</th>
-        <th>Phone</th>
-        <th>Actions</th>
-    </tr>
-    <tr th:each="person : ${persons}">
-        <td th:text="${person.id}"></td>
-        <td th:text="${person.email}"></td>
-        <td th:text="${person.lastName}"></td>
-        <td th:text="${person.firstName}"></td>
-        <td th:text="${person.phoneNumber}"></td>
-        <td>
-            <button><a th:href="@{/persons/delete/{id}(id=${person.id})}">Delete</a></button>
-        </td>
-    </tr>
-</table>
+    <header>
+        <div class="header-container">
+            <h1 class="header-title">Spring Boot</h1>
+            <div class="logout-button">
+                <a href="/login">Déconnecter</a>
+            </div>
+        </div>
+    </header>
+    <div class="content">
+
+        <h2>Liste des personnes</h2>
+
+        <a th:if="${#authorization.expression('hasRole(''ADMIN'')')}" th:href="@{/persons/add}" class="button">Ajouter une personne</a>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Téléphone</th>
+                <th th:if="${#authorization.expression('hasRole(''ADMIN'')')}">Rôle</th>
+                <th th:if="${#authorization.expression('hasRole(''ADMIN'')')}">Actions</th>
+            </tr>
+            <tr th:each="person : ${persons}">
+                <td th:text="${person.id}"></td>
+                <td th:text="${person.email}"></td>
+                <td th:text="${person.lastName}"></td>
+                <td th:text="${person.firstName}"></td>
+                <td th:text="${person.phoneNumber}"></td>
+                <td th:if="${#authorization.expression('hasRole(''ADMIN'')')}" th:text="${person.role}"></td>
+                <td th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+                    <a th:if="${#authorization.expression('hasRole(''ADMIN'')')}"
+                       th:href="@{/persons/delete/{id}(id=${person.id})}" class="button">Supprimer</a>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
+
 </html>
