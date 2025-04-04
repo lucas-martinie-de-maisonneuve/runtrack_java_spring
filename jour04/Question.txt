@@ -1,0 +1,4 @@
+Job 01 : Pourquoi est-il conseillé de séparer la logique métier des contrôleurs ?
+
+    On sépare la logique métier des contrôleurs pour avoir une meilleure organisation du code, améliorer la lisibilité et faciliter la maintenance.
+    Cette séparation permet de rendre la logique réutilisable et testable indépendamment des autres composants.

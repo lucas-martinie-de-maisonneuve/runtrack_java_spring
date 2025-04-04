@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Home Page</title>
+</head>
+
+<body>
+    <h1>Welcome to the Home Page!</h1>
+    <p>You are logged in.</p>
+    <p>Username: <span th:text="${username}"></span></p>
+    <p>Roles: <span th:text="${roles}"></span></p>
+
+    <a href="/logout">Logout</a>
+
+</body>
+
+</html>
